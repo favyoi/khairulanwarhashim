@@ -1,0 +1,36 @@
+<form>
+    <div class="form-group">
+      <div class="halfbox"> 
+      <label class="col-form-label" for="inputDefault">Type the artist name</label>
+        
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="e.g Halsey" 
+        [(ngModel)]="searchStr"
+        [ngModelOptions]="{ standalone: true }">
+      </div>
+    </div>
+      <button 
+      type="submit" 
+      class="btn btn-outline-success"
+      (click)="searchMusic()"
+      name="submit"
+      value="submit"
+      >Submit</button>
+
+</form>
+<br>
+<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Output</div>
+  <div class="card-body">
+    
+    <p class="card-text"><ng-container *ngIf="listOfMusic !== null">
+      <div *ngFor="let artist of listOfMusic">
+        <p class="name">Profile of: {{ artist.name }}</p>
+        <p>Genres: {{ artist.genres }}</p>
+      </div>
+    </ng-container></p>
+  </div>
+</div>
+
